@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="20A5395g" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Album" representedClassName="Album" syncable="YES">
+        <attribute name="albumArtist" attributeType="String"/>
+        <attribute name="albumImage" optional="YES" attributeType="String"/>
+        <attribute name="color1" optional="YES" attributeType="Transformable" valueTransformerName=""/>
+        <attribute name="color2" optional="YES" attributeType="Transformable"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="keepDownloaded" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="productionYear" optional="YES" attributeType="Integer 16" maxValueString="9999" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sortArtist" optional="YES" attributeType="String"/>
+        <attribute name="sortName" optional="YES" attributeType="String"/>
+        <relationship name="albumArtists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artist" inverseName="albums" inverseEntity="Artist"/>
+        <relationship name="genres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Genre" inverseName="albums" inverseEntity="Genre"/>
+        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Song" inverseName="album" inverseEntity="Song"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Artist" representedClassName="Artist" syncable="YES">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="sortName" optional="YES" attributeType="String"/>
+        <relationship name="albums" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="albumArtists" inverseEntity="Album"/>
+        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Song" inverseName="artists" inverseEntity="Song"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Genre" representedClassName="Genre" syncable="YES">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="albums" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="genres" inverseEntity="Album"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Playlist" representedClassName="Playlist" syncable="YES">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="keepDownloaded" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String"/>
+        <attribute name="sortName" attributeType="String"/>
+        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlaylistSong" inverseName="playlist" inverseEntity="PlaylistSong"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="PlaylistSong" representedClassName="PlaylistSong" syncable="YES">
+        <attribute name="order" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="playlistItemId" optional="YES" attributeType="String"/>
+        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="songs" inverseEntity="Playlist"/>
+        <relationship name="song" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Song" inverseName="playlists" inverseEntity="Song"/>
+    </entity>
+    <entity name="Song" representedClassName="Song" syncable="YES">
+        <attribute name="altName" optional="YES" attributeType="String"/>
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="diskNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="downloaded" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isFavourite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="runTime" attributeType="String"/>
+        <attribute name="trackNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="songs" inverseEntity="Album"/>
+        <relationship name="artists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artist" inverseName="songs" inverseEntity="Artist"/>
+        <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlaylistSong" inverseName="song" inverseEntity="PlaylistSong"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="authToken" attributeType="String"/>
+        <attribute name="musicLibraryId" optional="YES" attributeType="String"/>
+        <attribute name="playlistLibraryId" optional="YES" attributeType="String"/>
+        <attribute name="server" attributeType="String"/>
+        <attribute name="serverId" attributeType="String"/>
+        <attribute name="userId" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Album" positionX="223.1005859375" positionY="-477.7372131347656" width="128" height="253"/>
+        <element name="Artist" positionX="-171.92822265625" positionY="-402.5451354980469" width="128" height="118"/>
+        <element name="Genre" positionX="9.67169189453125" positionY="-444.1909790039062" width="128" height="88"/>
+        <element name="Playlist" positionX="358.0917358398438" positionY="-161.4944152832032" width="128" height="133"/>
+        <element name="PlaylistSong" positionX="554.7731323242188" positionY="-66.4420166015625" width="128" height="103"/>
+        <element name="Song" positionX="-10.7020263671875" positionY="-251.5040588378906" width="128" height="223"/>
+        <element name="User" positionX="196.8964233398437" positionY="-201.1273345947265" width="128" height="133"/>
+    </elements>
+</model>

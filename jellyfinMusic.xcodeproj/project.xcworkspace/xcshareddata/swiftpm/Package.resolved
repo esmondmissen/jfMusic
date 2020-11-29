@@ -1,0 +1,88 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "9e0328127dfb801cefe8ac53a13c0c90a7770448",
+          "version": "5.4.0"
+        }
+      },
+      {
+        "package": "AnimatedGradientView",
+        "repositoryURL": "https://github.com/rwbutler/AnimatedGradientView.git",
+        "state": {
+          "branch": null,
+          "revision": "ed9e0ca6cd7fd349cde925bd87336b08fdeefa89",
+          "version": "3.0.0"
+        }
+      },
+      {
+        "package": "Cache",
+        "repositoryURL": "https://github.com/hyperoslo/Cache.git",
+        "state": {
+          "branch": null,
+          "revision": "c7f4d633049c3bd649a353bad36f6c17e9df085f",
+          "version": "6.0.0"
+        }
+      },
+      {
+        "package": "HLSion",
+        "repositoryURL": "https://github.com/esmondmissen/HLSion.git",
+        "state": {
+          "branch": "master",
+          "revision": "1006362d915dff568486afac246a1604fb12d4d0",
+          "version": null
+        }
+      },
+      {
+        "package": "NavigationBarLargeTitleItems",
+        "repositoryURL": "https://github.com/markvanwijnen/NavigationBarLargeTitleItems.git",
+        "state": {
+          "branch": "master",
+          "revision": "b475956395b3188bd77a003a8b0f8d7753d9f9ea",
+          "version": null
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "e857b78ca4c8afe616b794aeb090d40f4e348072",
+          "version": "5.10.0"
+        }
+      },
+      {
+        "package": "SwifterSwift",
+        "repositoryURL": "https://github.com/SwifterSwift/SwifterSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "dc813f3aa92f904a009fe543b99d5649dce7c134",
+          "version": "5.2.0"
+        }
+      },
+      {
+        "package": "SwiftlySearch",
+        "repositoryURL": "https://github.com/thislooksfun/SwiftlySearch.git",
+        "state": {
+          "branch": null,
+          "revision": "3a208597b88b4f0b28bb669defaac75f18c2bd9e",
+          "version": "1.2.3"
+        }
+      },
+      {
+        "package": "UIImageColors",
+        "repositoryURL": "https://github.com/jathu/UIImageColors.git",
+        "state": {
+          "branch": null,
+          "revision": "e49e6c32ea556e9fa0109dc79686bea4a10d41a2",
+          "version": "2.2.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
